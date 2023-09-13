@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 # Create an 8x8 chessboard as a list of lists
 chessboard = [['' for _ in range(8)] for _ in range(8)]
 
@@ -5,9 +7,9 @@ chessboard = [['' for _ in range(8)] for _ in range(8)]
 for i in range(8):
     for j in range(8):
         if (i + j) % 2 == 0:
-            chessboard[i][j] = '□'
-        else:
             chessboard[i][j] = '■'
+        else:
+            chessboard[i][j] = '□'
 
 # Add numbers and letters to the sides
 for i in range(8):
@@ -19,6 +21,18 @@ chessboard.append([''] + letters)  # Add letters on the bottom
 # Print the chessboard
 for row in chessboard:
     print(' '.join(row))
+
+class Piece(ABC):
+    def __init__(self, location, icon):
+        self.icon = icon
+        self.location = location
+
+    def draw_yourself(self, file, rank):
+        for item in chessboard:
+            if item == rank:
+
+    def check_legal_move(self):
+        pass
 
 
 
