@@ -22,7 +22,8 @@ for row in chessboard:
 
 
 class Piece:
-    def __init__(self, location, icon):
+    def __init__(self, name, location, icon):
+        self.name = name
         self.icon = icon
         self.location = location
 
